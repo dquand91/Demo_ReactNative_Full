@@ -7,7 +7,7 @@ class Header extends Component {
         return (
             <View style={styles.header}>
                 <Text />
-                <Text>MY WORDS</Text>
+                <Text>MY WORDS 123</Text>
                 <TouchableOpacity onPress={() => this.props.dispatch({ type: 'TOGGLE_IS_ADDING' })}>
                     <Text>+</Text>
                 </TouchableOpacity>
