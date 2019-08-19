@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { connect } from 'react-redux';
+import { toggleIsAdding, addWord } from '../redux/actionCreators';
 
 class Form extends Component {
     constructor(props) {
@@ -14,16 +15,8 @@ class Form extends Component {
 
     onAdd() {
         const { en, vn } = this.state;
-        // Ở đây mình có truyền thêm 2 thuộc tính en và vn vào action của Redux,
-        // Redux sẽ lấy 2 thuộc tính này từ Reducer bằng cách: action.en và action.vn
-        this.props.dispatch({ 
-            type: 'ADD_WORD',
-            en,
-            vn
-        });
-        this.props.dispatch({ 
-            type: 'TOGGLE_IS_ADDING'
-        });
+        this.props.addWord(en, vn);
+        this.props.toggleIsAdding();
     }
 
     render() {
@@ -49,7 +42,7 @@ class Form extends Component {
     }
 }
 
-export default connect()(Form);
+export default connect(null, { addWord, toggleIsAdding })(Form);
 
 const styles = StyleSheet.create({
     container: {

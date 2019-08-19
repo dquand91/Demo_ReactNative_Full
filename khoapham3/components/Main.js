@@ -9,22 +9,14 @@ import Form from './Form';
 
 class Main extends Component {
     getWordList() {
-        // Cách viết bên dưới để khai báo là mình sẽ lấy ra được biến:
-        //      "myFilter" từ this.props
-        //      "listWords" từ this.props
-        // Mà this.props ở đây đã liên kết với Redux
-        const { myFilter, listWords } = this.props;
-        
-        if (myFilter === 'MEMORIZED') return listWords.filter(e => e.memorized);
-        if (myFilter === 'NEED_PRACTICE') return listWords.filter(e => !e.memorized);
-        return listWords;
+        const { myFilter, myWords } = this.props;
+        if (myFilter === 'MEMORIZED') return myWords.filter(e => e.memorized);
+        if (myFilter === 'NEED_PRACTICE') return myWords.filter(e => !e.memorized);
+        return myWords;
     }
     render() {
         return (
-            <View style={{ backgroundColor: 'darkgrey', flex: 1, 
-            alignSelf: 'stretch', 
-            justifyContent: 'center',
-            marginTop:30 }}>
+            <View style={{ backgroundColor: 'yellow', flex: 1, alignSelf: 'stretch', justifyContent: 'center' }}>
                 <Header />
                 <View style={{ flex: 10 }}>
                     { this.props.myIsAdding ? <Form /> : null }
@@ -44,7 +36,7 @@ class Main extends Component {
 function mapStateToProps(state) {
     return { 
         myFilter: state.filterStatus,
-        listWords: state.arrWords,
+        myWords: state.arrWords,
         myIsAdding: state.isAdding 
     };
 }
