@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import App from './khoapham3/App';
+import App from './redux_api_asynch/App';
 
 export default class DemoRedux2 extends Component {
   render() {
