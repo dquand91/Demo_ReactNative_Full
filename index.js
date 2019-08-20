@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import App from './redux_api_asynch/App';
+import App from './demo_react_navigation/App';
 
-export default class DemoRedux2 extends Component {
-  render() {
-    return <App />;
-  }
-}
 
-AppRegistry.registerComponent('QuanDemo', () => DemoRedux2);
+AppRegistry.registerComponent('QuanDemo', () => App);
 
 
 
+// import React, { Component } from 'react';
+// import { AppRegistry } from 'react-native';
+// import App from './redux_api_asynch/App';
 
+// export default class DemoRedux2 extends Component {
+//   render() {
+//     return <App />;
+//   }
+// }
 
+// AppRegistry.registerComponent('QuanDemo', () => DemoRedux2);
 
 
 
